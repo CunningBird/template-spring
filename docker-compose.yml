@@ -1,0 +1,19 @@
+version: '3.7'
+
+services:
+
+  application:
+    image: "cunningbird/template-spring:1.0.0"
+    container_name: application
+    build:
+      context: .
+      args:
+        publicDependenciesRepositoryUrl: https://repo.maven.apache.org/maven2/
+        publicPluginsRepositoryUrl: https://plugins.gradle.org/m2/
+    ports:
+      - "8080:8080"
+    environment:
+      - SPRING_APPLICATION_PORT=8080
+
+volumes:
+  postgres-data:
